@@ -1,3 +1,8 @@
 <h1>Show d'un animal</h1>
 <%= @animal.name %><br>
 <%= @animal.description %>
+
+<%= link_to "Delete this animal",
+        animal_path(@animal),
+        method: :delete,
+        data: { confirm: "Are you sure?" }, class:"ms-3 text-danger" %>
