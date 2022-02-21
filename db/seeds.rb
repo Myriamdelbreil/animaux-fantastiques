@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+10.times do
+  animal = Animal.new({ name: "taranbog", price: 10, category: "Augurey", description: "this is a test", user_id: 1 })
+  animal.save!
+end
