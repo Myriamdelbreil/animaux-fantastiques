@@ -1,1 +1,20 @@
-<h1>Tous les animaux</h1>
+
+<div class="container">
+  <h1>Tous les animaux</h1>
+    <div class="row">
+        <% @animals.each do |animal|%>
+        <div class="col-4">
+          <li class="list-group-item">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="magic beast">
+              <div class="card-body">
+                <h5 class="card-title"> <%= animal.name %></h5>
+                <p class="card-text"> <%=animal.description%></p>
+                <p class="btn btn-primary"> <%= link_to "more information", animal_path(animal) %></p>
+              </div>
+            </div>
+          </li>
+        </div>
+        <% end %>
+    </div>
+</div>
