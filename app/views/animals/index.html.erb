@@ -1,5 +1,4 @@
-
-<div class="container">
+<div class="container", style="margin-top:75px">
   <h1>Tous les animaux</h1>
     <div class="row">
         <% @animals.each do |animal|%>
@@ -8,13 +7,13 @@
             <%if animal.photo.key%>
               <%= cl_image_tag animal.photo.key%>
             <%else%>
-              <%= cl_image_tag("1976755_nyl4od", style:"object-fit:cover, object-align:center")%>
+              <%= image_tag("placeholder_animal.png", style:"object-fit:cover, object-align:center")%>
             <%end%>
             <div class="card-trip-infos">
               <div>
                 <h2> <%= animal.name %></h5>
                 <p> <%=animal.description%></p>
-                <div class="btn_info">
+                <div class="btn btn-primary">
                   <%= link_to "More information", animal_path(animal)%>
                 </div>
               </div>
@@ -23,7 +22,7 @@
               <% if animal.user.photo.key != nil%>
                 <%= cl_image_tag animal.user.photo.key, class:"avatar", gravity:"faces", style:"object-fit:cover" %>
               <%else%>
-                <%= cl_image_tag("user_sz7cle", class:"avatar", gravity:"faces", style:"object-fit:cover")%>
+                <%= image_tag("placeholder_user.png", class:"avatar", style:"object-fit:cover")%>
               <%end%>
               </div>
             </div>
