@@ -1,9 +1,11 @@
 #booking-form {
-  margin-top: 100px;
+  margin-top: 200px;
   max-width: 500px !important;
-  color: white;
-  border: $primary;
+  color: black;
+  border: $primary 1px solid;
   border-radius: 10px;
+  margin: 20px;
+  padding: 12px;
 }
 
 #booking-form h1 {
