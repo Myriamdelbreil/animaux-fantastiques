@@ -10,7 +10,9 @@
               <div>
                 <h2> <%= animal.name %></h5>
                 <p> <%=animal.description%></p>
-                <p class="btn btn-primary"> <%= link_to "more information", animal_path(animal) %></p>
+                <div class="btn_info">
+                  <%= link_to "More information", animal_path(animal)%>
+                </div>
               </div>
               <h2 class="card-trip-pricing">£<%=animal.price%>/day</h2>
               <div class="card-trip-user">
