@@ -1,4 +1,4 @@
-<h1>Show d'un animal</h1>
+<h1 style="color:white"><%=@animal.name%></h1>
 <%= @animal.name %><br>
 <%= @animal.description %>
 <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
