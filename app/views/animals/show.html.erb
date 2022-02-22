@@ -7,8 +7,8 @@
   </div>
   <div class="row" style="300px">
     <div class="column col-6">
-      <%if @animal.photo.key != nil%>
-        <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
+      <%if @animal.photos[0] != nil%>
+        <%= cl_image_tag @animal.photos[1].key, height: 300, width: 400, crop: :fill %>
       <%else%>
         <%= image_tag("placeholder_animal.png", height: 300, width: 400, alt:"placeholder")%>
       <%end%>

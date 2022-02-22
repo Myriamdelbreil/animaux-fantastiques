@@ -4,5 +4,5 @@ class Animal < ApplicationRecord
   has_many :bookings, dependent: :destroy
   validates :name, :description, :price, :category, presence: true
   validates :category, inclusion: { in: CATEGORIES }
-  has_one_attached :photo
+  has_many_attached :photos
 end
