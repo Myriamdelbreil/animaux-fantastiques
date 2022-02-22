@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :username, length: { minimum: 5 }
+  validates :photo, presence: true
   has_many :animals
   has_many :bookings
 end
