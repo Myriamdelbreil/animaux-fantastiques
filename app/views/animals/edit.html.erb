@@ -1,12 +1,14 @@
-<h1>créer un nouvel animal</h1>
+<div class="container" style="margin-top:100px">
 
-<div class="container">
-  <h1>New list</h1>
-  <%= simple_form_for @animal do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :category, as: :select, collection: ["Acromentule", "Augurey", "Botruc", "Centaure", "Dragon", "Farfadet", "Hippogriffe", "Licorne", "Loup-Garou", "Phénix", "Troll"] %>
-    <%= f.input :price %>
-    <%= f.submit "Update your animal", class: "btn btn-primary" %>
-  <% end %>
+
+  <div class="container" style="width:600px">
+    <h1>Créer un nouvel animal</h1>
+    <%= simple_form_for @animal do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :category, as: :select, collection: ["Acromentule", "Augurey", "Botruc", "Centaure", "Dragon", "Farfadet", "Hippogriffe", "Licorne", "Loup-Garou", "Phénix", "Troll"] %>
+      <%= f.input :price %>
+      <%= f.submit "Update your animal", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
