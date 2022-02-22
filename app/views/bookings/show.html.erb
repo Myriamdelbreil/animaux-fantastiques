@@ -1,8 +1,18 @@
-<div class="container center" id="booking-show">
-  <h1>Récapitulatif de votre réservation :</h1>
-  <p>Nom de votre animal : <%=@booking.animal.name%></p>
-  <p>Catégorie de votre animal : <%=@booking.animal.category%></p>
-  <% duration = (@booking.end_date - @booking.start_date).to_i %>
-  <p>Nombre de jours de réservation : <%= duration%> jours</p>
-  <p>Prix total de votre réservation : <%=@booking.animal.price * duration%> $</p>
+
+<div class="container d-flex justify-content-around distrib">
+  <div id="booking-show block">
+    <h1>Summary of your reservation :</h1>
+    <p>Animal's name : <%=@booking.animal.name%></p>
+    <p><%=@booking.animal.name%>'s category : <%=@booking.animal.category%></p>
+    <% duration = (@booking.end_date - @booking.start_date).to_i %>
+    <p>Number of days of reservation : <%= duration%> days</p>
+    <p>Total price of your reservation : <%=@booking.animal.price * duration%> $</p>
+  </div>
+  <div class="block">
+  <%if @booking.animal.photo.key != nil%>
+          <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
+        <%else%>
+          <%= image_tag("placeholder_animal.png", height: 300, width: 400, alt:"placeholder")%>
+    <%end%>
+  </div>
 </div>

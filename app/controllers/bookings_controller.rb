@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.animal = @animal
     if @booking.save
-      redirect_to animal_path(@animal)
+      redirect_to booking_path(@booking)
     else
       render :new
     end
