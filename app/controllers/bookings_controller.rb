@@ -23,6 +23,8 @@ class BookingsController < ApplicationController
     end
   end
 
+  # test
+
   private
 
   def booking_params
