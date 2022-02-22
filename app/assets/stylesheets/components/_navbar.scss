@@ -14,7 +14,6 @@
 
 .nav-bar{
   background-color: $gray;
-  height: 150px;
   color: $yellow;
 
   h1{
@@ -47,4 +46,14 @@
 .tabs-underlined .tab-underlined.active {
   opacity: 1;
   border-bottom: 3px solid #555555;
+}
+
+.bulle{
+  width: 100px;
+  border-radius: 10px;
+  background-color: $yellow;
+  color: #555555;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  text-align: center;
 }
