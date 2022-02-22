@@ -4,7 +4,7 @@
 <% if @animal.photo.key != nil%>
     <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
   <%else%>
-    <%= cl_image_tag("1976755_nyl4od", height: 300, width: 400, crop: :fill, alt:"placeholder")%>
+    <%= image_tag("placeholder_animal.png", height: 300, width: 400, alt:"placeholder")%>
   <%end%>
 <%= link_to "Delete this animal",
         animal_path(@animal),
