@@ -4,8 +4,8 @@
         <% @animals.each do |animal|%>
         <div class="col-4", style="margin-bottom: 10px">
           <div class="card-trip">
-            <%if animal.photo.key%>
-              <%= cl_image_tag animal.photo.key%>
+            <%if animal.photos[0] != nil%>
+              <%= cl_image_tag animal.photos[0].key%>
             <%else%>
               <%= image_tag("placeholder_animal.png", style:"object-fit:cover, object-align:center")%>
             <%end%>

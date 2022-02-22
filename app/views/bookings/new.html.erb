@@ -1,16 +1,17 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
 <div id="booking-form">
   <div>
-    <h1>Votre réservation :</h1>
-    <p><%=@animal.name%> : <%=@animal.price%>eu/jour</p>
+    <h1>Your reservation :</h1>
+    <p><%=@animal.name%> : <%=@animal.price%> €/day</p>
     <%= simple_form_for [@animal, @booking] do |f| %>
       <%= f.input :start_date, as: :date, html5: true %>
       <%= f.input :end_date, as: :date, html5: true %>
-      <%= f.submit "Book now", class: "btn btn-info" %>
+      <%= f.submit "Book now", class: "btn btn-primary" %>
     <% end %>
   </div>
 <div>
-    <%# <p><%=@animal.price <%=(@booking.end_date - @booking.start_date).to_i%>
-    <%# <p>Frais de service</p> %>
-  <%# </div> %>
-  <%# <p>Total</p> %>
-<%# </div> %>
