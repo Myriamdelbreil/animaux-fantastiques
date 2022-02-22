@@ -22,7 +22,14 @@
           <%= link_to "Add an animal", new_animal_path%>
         </div>
         <div class="column col-1 align-content-center">
-          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+          <img class="avatar-large" alt="avatar-large" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <% if current_user == false %>
+                <%= link_to "Sign in", users, class:"dropdown-item"%>
+              <% else %>
+                <%= link_to "Log out", class:"dropdown-item" %>
+              <% end%>
+            </div>
         </div>
 
       </div>
