@@ -6,3 +6,26 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+   <div class="row">
+        <% @animals.each do |animal|%>
+        <div class="col-4", style="margin-bottom: 10px">
+          <div class="card-trip">
+            <%= cl_image_tag animal.photo.key, style:"object-fit:cover, object-align:center"%>
+            <div class="card-trip-infos">
+              <div>
+                <h2> <%= animal.name %></h5>
+                <p> <%=animal.description%></p>
+                <p class="btn btn-primary"> <%= link_to "more information", animal_path(animal) %></p>
+              </div>
+              <h2 class="card-trip-pricing">£<%=animal.price%>/day</h2>
+              <div class="card-trip-user">
+                <%= cl_image_tag animal.photo.key, class:"avatar", gravity:"faces", style:"object-fit:cover" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+    </div>
+</div>
