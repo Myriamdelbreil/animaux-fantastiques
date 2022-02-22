@@ -13,16 +13,18 @@
 // }
 
 .nav-bar{
-  background-color: $gray;
-  height: 150px;
-  color: $yellow;
+
+  .first-line{
+    background-color: $gray;
+    color: $yellow;
+  }
+
 
   h1{
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
   }
-}
 
 .second-line{
   display:flex;
@@ -47,4 +49,31 @@
 .tabs-underlined .tab-underlined.active {
   opacity: 1;
   border-bottom: 3px solid #555555;
+}
+
+.second-line{
+  margin-top: 10px;
+}
+.bulle{
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 120px;
+  border-radius: 10px;
+  background-color: $yellow;
+  color: #555555;
+  text-align: center;
+  height:40%;
+  padding-top: auto;
+  padding-bottom: auto;
+  text-align: center;
+}
+
+.bulle a{
+  text-decoration: none;
+}
+
+.bulle:hover{
+  background-color: #D9B878;
+}
+
 }
