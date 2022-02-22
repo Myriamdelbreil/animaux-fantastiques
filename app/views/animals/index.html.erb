@@ -3,17 +3,19 @@
   <h1>Tous les animaux</h1>
     <div class="row">
         <% @animals.each do |animal|%>
-        <div class="col-4">
-          <li class="list-group-item">
-            <div class="card">
-              <img src="..." class="card-img-top" alt="magic beast">
-              <div class="card-body">
-                <h5 class="card-title"> <%= animal.name %></h5>
-                <p class="card-text"> <%=animal.description%></p>
+        <div class="col-4", style="margin-bottom: 10px">
+          <div class="card-trip">
+            <img src="https://artprojectsforkids.org/wp-content/uploads/2021/04/How-to-Draw-a-Unicorn.jpeg" class="card-img-top" alt="magic beast">
+            <div class="card-trip-infos">
+              <div>
+                <h2> <%= animal.name %></h5>
+                <p> <%=animal.description%></p>
                 <p class="btn btn-primary"> <%= link_to "more information", animal_path(animal) %></p>
               </div>
+              <h2 class="card-trip-pricing">£<%=animal.price%>/day</h2>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered", alt="user"/>
             </div>
-          </li>
+          </div>
         </div>
         <% end %>
     </div>

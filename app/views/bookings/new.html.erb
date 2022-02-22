@@ -1,0 +1,10 @@
+<h1>new booking</h1>
+
+<div class="container">
+  <h1>New list</h1>
+  <%= simple_form_for [@animal, @booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit "Book now", class: "btn btn-primary" %>
+  <% end %>
+</div>

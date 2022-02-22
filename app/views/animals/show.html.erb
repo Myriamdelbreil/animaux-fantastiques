@@ -1,6 +1,7 @@
 <h1>Show d'un animal</h1>
 <%= @animal.name %><br>
 <%= @animal.description %>
+<%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
 
 <%= link_to "Delete this animal",
         animal_path(@animal),

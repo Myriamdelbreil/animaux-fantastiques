@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
-  belongs_to :user_id
-  belongs_to :animal_id
+  belongs_to :user
+  belongs_to :animal
 
-  validates :total_price, :start_date, :end_date, presence: true
+  validates :start_date, :end_date, presence: true
 end
