@@ -6,3 +6,17 @@
     </div>
   </div>
 </div>
+
+<div class="container mt-5">
+  <div class="container">
+    <div class="row">
+        <% @categories.each do |category|%>
+          <div class="col-4", style="margin-bottom: 10px">
+            <div class="card-category mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+              <%= category %>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
