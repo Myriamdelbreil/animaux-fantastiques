@@ -12,45 +12,56 @@
   </head>
 
   <body>
-    <div class="nav-bar">
+    <div class="nav-bar fixed-top">
       <div class="row first-line d-flex justify-content-between">
-        <div class="column col-1">Logo</div>
-        <div class="column col-lg-9 col-sm-4">
-          <h1 style="text-align:center">Fantastic beasts</h1>
+        <div class="column col-lg-3 col-sm-2" style="margin-top:auto; margin-bottom:auto">
+          <h3>Fantastic beasts</h3>
         </div>
-        <div class="column bulle col-3 col-sm-2 d-flex justify-content-between">
+        <div class="column col-lg-5 col-md-5 col-sm-2 tabs">
+          <ul class="list-inline tabs-underlined tabs">
+            <li>
+              <%=  link_to "Bookings", animals_path(), class:"tab-underlined", style:"color:$yellow"%>
+            </li>
+            <li>
+              <%=  link_to "Recommandations", animals_path, class:"tab-underlined active"%>
+            </li>
+            <li>
+              <%=  link_to "Top 5 animals worldwide", animals_path, class:"tab-underlined "%>
+            </li>
+          </ul>
+        </div>
+        <div class="column bulle col-lg-3 col-md-2 col-sm-1 d-flex justify-content-between">
           <%= link_to "Add an animal", new_animal_path%>
         </div>
-        <div class="column col-1 align-content-center">
+        <div class="column col-lg-1 col-md-2 col-sm-1 align-content-center">
           <img class="avatar-large" alt="avatar-large" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <% if current_user == false %>
                 <%= link_to "Sign in", users, class:"dropdown-item"%>
               <% else %>
-                <%= link_to "Log out", class:"dropdown-item" %>
+                <%= link_to "Dashboard", animals_path, class:"dropdown-item" %>
+                <%= link_to "Bookings' history", animals_path, class:"dropdown-item"%>
+                <%= link_to "Log out", animals_path, class:"dropdown-item" %>
               <% end%>
             </div>
         </div>
-
-      </div>
-      <div class="row second-line">
-        <div class="column">
-          <ul class="list-inline tabs-underlined">
-            <li>
-              <a href="#" class="tab-underlined active">Bookings</a>
-            </li>
-            <li>
-              <a href="#" class="tab-underlined">Requests</a>
-            </li>
-            <li>
-              <a href="#" class="tab-underlined">Conversations</a>
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
+  </div>
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>
   </body>
 </html>
