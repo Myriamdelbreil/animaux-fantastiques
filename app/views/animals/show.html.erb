@@ -3,7 +3,7 @@
     <%= render "search_bar" %>
   </div>
   <div class="fs-1">
-    <h1 style="color:white"><%=@animal.name%></h1>
+    <h1 style="color:black"><%=@animal.name%></h1>
   </div>
   <div class="row" style="300px">
     <div class="column col-6">
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <div class="btn_delete">
+  <div class="btn btn-danger">
     <%= link_to "Delete this animal",
           animal_path(@animal),
           method: :delete,
