@@ -13,12 +13,20 @@
 
   <body>
     <div class="nav-bar">
-      <div class="row">
-        <h1 style="text-align:center">Fantastic beasts and where to find them</h1>
+      <div class="row first-line d-flex justify-content-between">
+        <div class="column col-1">Logo</div>
+        <div class="column col-lg-9 col-sm-4">
+          <h1 style="text-align:center">Fantastic beasts</h1>
+        </div>
+        <div class="column bulle col-3 col-sm-2 d-flex justify-content-between">
+          <%= link_to "Add an animal", new_animal_path%>
+        </div>
+        <div class="column col-1 align-content-center">
+          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+        </div>
+
       </div>
-      <br>
       <div class="row second-line">
-        <div class="column">Logo</div>
         <div class="column">
           <ul class="list-inline tabs-underlined">
             <li>
