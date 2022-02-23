@@ -27,7 +27,26 @@
   margin-top: 20px;
 }
 
+
 .btn-danger a {
+  color: white !important;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 140;
+  margin-left: 0 !important;
+}
+
+.btn-warning {
+  padding-top: 3px ;
+  padding-bottom: 5px;
+  padding-left: 14px;
+  border-radius: 5px;
+  margin-top: 5px;
+  width: 135px;
+  margin-top: 20px;
+}
+
+.btn-warning a {
   color: white !important;
   text-decoration: none;
   font-size: 14px;
