@@ -3,19 +3,51 @@
   <div id="booking-show block">
     <h1>Summary of your reservation :</h1>
     <br>
-    <p>Animal's name : <%=@booking.animal.name %></p>
-    <p><%=@booking.animal.name%>'s category : <%=@booking.animal.category %></p>
-    <p>Number of days of reservation : <%= @duration %> days</p>
-    <p>Total price of your reservation : <%= @booking.total_price %> $</p>
-  <div class="btn btn-primary">
-    <%= link_to "Go back to animals",animals_path()%>
+    <p>Animal's name : <%=@booking.animal.name%></p>
+    <p><%=@booking.animal.name%>'s category : <%=@booking.animal.category%></p>
+    <% duration = (@booking.end_date - @booking.start_date).to_i %>
+    <p>Number of days of reservation : <%= duration%> days</p>
+    <p>Total price of your reservation : <%=@booking.animal.price * duration%> $</p>
+    <div class="btn btn-primary">
+      <%= link_to "Go back to animals",animals_path()%>
+    </div>
   </div>
-  </div>
-  <div class="block">
-  <%if @booking.animal.photos[0] != nil%>
-          <%= cl_image_tag @booking.animal.photos[0].key, height: 300, width: 400, crop: :fill %>
+  <div  id="carouselExampleIndicators" class="carousel slide block" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%if @booking.animal.photos[0] != nil%>
+          <%=cl_image_tag @booking.animal.photos[0].key, gravity: :center, height: 300, width: 400, crop: :thumb, style:"border-radius: 3px", alt:"First slide", class:"d-block w-100"%>
         <%else%>
-          <%= image_tag("placeholder_animal.png", height: 300, width: 400, alt:"placeholder") %>
-    <%end%>
+        <%= image_tag("placeholder_animal.png", height: 300, width: 400, alt:"First slide", class:"d-block w-100")%>
+        <%end%>
+      </div>
+      <div class="carousel-item">
+        <%if @booking.animal.photos[1] != nil%>
+          <%=cl_image_tag @booking.animal.photos[1].key, gravity: :center, height: 300, width: 400, crop: :thumb, style:"border-radius: 3px", alt:"Second slide", class:"d-block w-100"%>
+        <%else%>
+        <%= image_tag("placeholder_animal.png", height: 300, width: 400, alt:"Second slide", class:"d-block w-100")%>
+        <%end%>
+      </div>
+      <div class="carousel-item">
+        <%if @booking.animal.photos[2] != nil%>
+          <%=cl_image_tag @booking.animal.photos[2].key, gravity: :center, height: 300, width: 400, crop: :thumb, style:"border-radius: 3px", alt:"Third slide", class:"d-block w-100"%>
+        <%else%>
+        <%= image_tag("placeholder_animal.png", height: 300, width: 400, alt:"Third slide", class:"d-block w-100")%>
+        <%end%>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
 </div>
