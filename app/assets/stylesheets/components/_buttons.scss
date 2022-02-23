@@ -1,3 +1,7 @@
+.btn {
+  font-size: 20px;
+}
+
 .btn-primary {
   padding-top: 3px ;
   padding-bottom: 5px;
@@ -12,7 +16,6 @@
 .btn-primary a {
   color: white !important;
   text-decoration: none;
-  font-size: 16px;
   font-weight: 140;
 }
 
@@ -31,7 +34,6 @@
 .btn-danger a {
   color: white !important;
   text-decoration: none;
-  font-size: 16px;
   font-weight: 140;
   margin-left: 0 !important;
 }
@@ -49,7 +51,6 @@
 .btn-warning a {
   color: white !important;
   text-decoration: none;
-  font-size: 16px;
   font-weight: 140;
   margin-left: 0 !important;
 }
