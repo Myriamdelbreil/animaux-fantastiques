@@ -10,7 +10,7 @@
       <%if @animal.photos[0] != nil%>
         <%= cl_image_tag @animal.photos[0].key, gravity: :center, height: 300, width: 600, crop: :thumb, style:"border-radius: 3px" %>
       <%else%>
-        <%= image_tag("placeholder_animal.png", height: 300, width: 500, alt:"placeholder", style:"border-radius: 3px")%>
+        <%= image_tag("placeholder_animal.png", height: 300, width: 600, alt:"placeholder", style:"border-radius: 3px")%>
       <%end%>
     </div>
     <div class="column col-6">
