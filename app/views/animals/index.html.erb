@@ -5,9 +5,9 @@
         <div class="col-md-12 col-lg-4", style="margin-bottom: 10px">
           <div class="card-trip">
             <%if animal.photos[0] != nil%>
-              <%= cl_image_tag animal.photos[0].key%>
+              <%= cl_image_tag animal.photos[0].key, class:"photo"%>
             <%else%>
-              <%= image_tag("placeholder_animal.png", style:"object-fit:cover, object-align:center")%>
+              <%= image_tag("placeholder_animal.png", class:"photo")%>
             <%end%>
             <div class="card-trip-infos">
               <div>
