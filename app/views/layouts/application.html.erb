@@ -54,10 +54,11 @@
               <%=  link_to "Top 5 animals worldwide", animals_path, class:"nav-link active"%>
             </li>
           </ul>
-          <span class="navbar-text btn btn-outline-light mx-3">
-            <%= link_to "Add an animal", new_animal_path%>
-          </span>
-
+            <% if policy(Animal).create? %>
+             <span class="navbar-text btn btn-outline-light mx-3">
+             <%= link_to "Add an animal", new_animal_path%>
+              </span>
+            <% end %>
           <div>
             <img class="avatar" alt="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

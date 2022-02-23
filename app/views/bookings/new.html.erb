@@ -3,15 +3,18 @@
 <br>
 <br>
 <br>
-
-<div id="booking-form">
+<div class="container">
+  <div id="booking-form">
+    <div>
+      <h1>Your reservation :</h1>
+      <p><%=@animal.name%> : <%=@animal.price%> €/day</p>
+      <%= simple_form_for [@animal, @booking] do |f| %>
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
+        <% if policy(Booking).create? %>
+        <%= f.submit "Book now", class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    </div>
   <div>
-    <h1>Your reservation :</h1>
-    <p><%=@animal.name%> : <%=@animal.price%> €/day</p>
-    <%= simple_form_for [@animal, @booking] do |f| %>
-      <%= f.input :start_date, as: :date, html5: true %>
-      <%= f.input :end_date, as: :date, html5: true %>
-      <%= f.submit "Book now", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-<div>
+</div>
