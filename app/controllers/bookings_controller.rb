@@ -1,11 +1,17 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = policy_scope(Booking).order(created_at: :desc)
+    @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :desc)
+    @bookings.each do |booking|
+      @duration = (booking.end_date - booking.start_date).to_i
+      booking.total_price = booking.animal.price * @duration
+    end
   end
 
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
+    @duration = (@booking.end_date - @booking.start_date).to_i
+    @booking.total_price = @booking.animal.price * @duration
   end
 
   def new
