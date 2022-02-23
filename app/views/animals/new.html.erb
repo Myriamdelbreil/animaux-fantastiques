@@ -3,7 +3,7 @@
   <%= simple_form_for @animal do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :category, as: :select, collection: ["Acromentule", "Augurey", "Botruc", "Centaure", "Dragon", "Farfadet", "Hippogriffe", "Licorne", "Loup-Garou", "Phénix", "Troll"] %>
+    <%= f.input :category, as: :select, collection: Animal::CATEGORIES %>
     <%= f.input :price %>
     <%= f.input :photos, as: :file, input_html: { multiple: true }%>
     <%= f.submit "Create an animal", class: "btn btn-primary" %>
