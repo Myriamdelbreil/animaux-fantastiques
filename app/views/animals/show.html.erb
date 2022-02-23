@@ -5,44 +5,44 @@
   <div class="fs-1">
     <h1 style="color:black"><%="#{@animal.name} - #{@animal.price}£"%></h1>
   </div>
-  <div class="row" style="300px">
-    <div class="column col-6">
+  <div class="row">
+    <div class="column col-lg-6 col-md-12", style="margin-bottom: 10px">
       <%if @animal.photos[0] != nil%>
         <%= cl_image_tag @animal.photos[0].key, gravity: :center, height: 331, width: 600, crop: :thumb, class:"photo" %>
       <%else%>
         <%= image_tag("placeholder_animal.png", height: 331, width: 600, alt:"placeholder", class:"photo")%>
       <%end%>
     </div>
-    <div class="column col-6">
+    <div class="column col-lg-6 col-md-12", style="margin-bottom: 10px">
       <div class="row justify-content-between">
         <div class="column col-6">
           <%if @animal.photos[1] != nil%>
-            <%= cl_image_tag @animal.photos[1].key, gravity: :center, height: 160, width: 320, crop: :thumb, class:"photo" %>
+            <%= cl_image_tag @animal.photos[1].key, gravity: :center, height: 160, width: 305, crop: :thumb, class:"photo" %>
           <%else%>
-            <%= image_tag("placeholder_animal.png", height: 160, width: 320, alt:"placeholder", class:"photo")%>
+            <%= image_tag("placeholder_animal.png", height: 160, width: 305, alt:"placeholder", class:"photo")%>
           <%end%>
         </div>
         <div class="column col-6">
           <%if @animal.photos[2] != nil%>
-            <%= cl_image_tag @animal.photos[2].key, gravity: :center, height: 160, width: 320, crop: :thumb, class:"photo" %>
+            <%= cl_image_tag @animal.photos[2].key, gravity: :center, height: 160, width: 305, crop: :thumb, class:"photo" %>
           <%else%>
-            <%= image_tag("placeholder_animal.png", height: 160, width: 320, alt:"placeholder", class:"photo")%>
+            <%= image_tag("placeholder_animal.png", height: 160, width: 305, alt:"placeholder", class:"photo")%>
           <%end%>
         </div>
       </div>
       <div class="row justify-content-between" style="margin-top: 10px">
         <div class="column col-6">
           <%if @animal.photos[3] != nil%>
-            <%= cl_image_tag @animal.photos[3].key, gravity: :center, height: 160, width: 320, crop: :thumb, class:"photo" %>
+            <%= cl_image_tag @animal.photos[3].key, gravity: :center, height: 160, width: 305, crop: :thumb, class:"photo" %>
           <%else%>
-            <%= image_tag("placeholder_animal.png", height: 160, width: 320, alt:"placeholder", class:"photo")%>
+            <%= image_tag("placeholder_animal.png", height: 160, width: 305, alt:"placeholder", class:"photo")%>
           <%end%>
         </div>
         <div class="column col-6">
           <%if @animal.photos[4] != nil%>
-            <%= cl_image_tag @animal.photos[4].key, gravity: :center, height: 160, width: 320, crop: :thumb, class:"photo" %>
+            <%= cl_image_tag @animal.photos[4].key, gravity: :center, height: 160, width: 305, crop: :thumb, class:"photo" %>
           <%else%>
-            <%= image_tag("placeholder_animal.png", height: 160, width: 320, alt:"placeholder", class:"photo")%>
+            <%= image_tag("placeholder_animal.png", height: 160, width: 305, alt:"placeholder", class:"photo")%>
           <%end%>
         </div>
       </div>
