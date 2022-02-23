@@ -3,6 +3,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
+  height: 325px;
 }
 
 .card-trip > img {
@@ -23,12 +24,14 @@
   margin: 0;
 }
 
-
+.card-bottom{
+  display: flex;
+  align-items: flex-end;
+  margin-top: auto;
+  justify-content: space-between;
+}
 .card-trip .card-trip-infos {
   padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   position: relative;
 }
 
