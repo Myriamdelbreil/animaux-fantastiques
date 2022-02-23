@@ -2,12 +2,13 @@
 
 
   <div class="container" style="width:600px">
-    <h1>Créer un nouvel animal</h1>
+    <h1>Edit your animal</h1>
     <%= simple_form_for @animal do |f| %>
       <%= f.input :name %>
       <%= f.input :description %>
       <%= f.input :category, as: :select, collection: ["Acromentule", "Augurey", "Botruc", "Centaure", "Dragon", "Farfadet", "Hippogriffe", "Licorne", "Loup-Garou", "Phénix", "Troll"] %>
       <%= f.input :price %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }%>
       <%= f.submit "Update your animal", class: "btn btn-primary" %>
     <% end %>
   </div>
