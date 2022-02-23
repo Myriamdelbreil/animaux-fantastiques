@@ -3,27 +3,38 @@
     <%= render "search_bar" %>
   </div>
   <div class="fs-1">
-    <h1 style="color:black"><%=@animal.name%></h1>
+    <h1 style="color:black"><%="#{@animal.name} - #{@animal.price}£"%></h1>
   </div>
   <div class="row" style="300px">
     <div class="column col-6">
       <%if @animal.photos[0] != nil%>
-        <%= cl_image_tag @animal.photos[1].key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @animal.photos[0].key, gravity: :center, height: 300, width: 600, crop: :thumb, style:"border-radius: 3px" %>
       <%else%>
-        <%= image_tag("placeholder_animal.png", height: 300, width: 400, alt:"placeholder")%>
+        <%= image_tag("placeholder_animal.png", height: 300, width: 500, alt:"placeholder", style:"border-radius: 3px")%>
       <%end%>
     </div>
     <div class="column col-6">
-      <div class="description-card">
-        <h3 style="text-align: center">Description of the animal</h3>
-        <%= @animal.description %>
-      </div>
     </div>
   </div>
-  <div class="btn btn-danger">
-    <%= link_to "Delete this animal",
-          animal_path(@animal),
-          method: :delete,
-          data: { confirm: "Are you sure?" }, class:"ms-3 text-danger" %>
+  <div class="description-card">
+    <h3 style="text-align: center">Who is <%= @animal.name%>?</h3>
+    <%= @animal.description %>
+  </div>
+  <div class="row" style="margin-bottom: 50px">
+    <div class="column col-2">
+      <div class="btn btn-danger">
+        <%= link_to "Delete",
+              animal_path(@animal),
+              method: :delete,
+              data: { confirm: "Are you sure?" }, class:"ms-3 text-danger" %>
+      </div>
+    </div>
+    <div class="columon col-2">
+      <div class="btn btn-warning">
+        <%= link_to "Edit",
+                edit_animal_path(@animal)
+               %>
+      </div>
+    </div>
   </div>
 </div>
