@@ -66,3 +66,19 @@
   color: white;
   position: absolute;
 }
+
+.btn-outline-light{
+  background-color: $yellow;
+  border: solid $yellow;
+}
+.btn-outline-light > a{
+  color: #212529;
+  text-decoration: none;
+}
+
+
+.btn-outline-light:hover{
+  background-color: rgb(229, 189, 128);
+  color: #212529;
+  border: solid rgb(229, 189, 128);
+}

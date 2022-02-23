@@ -29,7 +29,7 @@
             </li>
           </ul>
             <% if policy(Animal).create? %>
-             <span class="navbar-text btn btn-outline-light mx-3">
+             <span class="btn btn-outline-light mx-3">
              <%= link_to "Add an animal", new_animal_path%>
               </span>
             <% end %>
@@ -49,18 +49,21 @@
     </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
-  <div class="footer">
-    <div class="footer-links">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
+    <div class="content-wrapper">
+      <%= yield %>
     </div>
-    <div class="footer-copyright">
-      This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+    <div class="footer">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright">
+        This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+      </div>
     </div>
-  </div>
+
   </body>
 </html>
