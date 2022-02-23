@@ -40,8 +40,8 @@ class AnimalsController < ApplicationController
 
   def destroy
     @animal = Animal.find(params[:id])
-    @animal.destroy
     authorize @animal
+    @animal.destroy
     redirect_to animals_path
   end
 
