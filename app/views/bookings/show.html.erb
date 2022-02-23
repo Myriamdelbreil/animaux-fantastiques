@@ -2,11 +2,15 @@
 <div class="container d-flex justify-content-around distrib">
   <div id="booking-show block">
     <h1>Summary of your reservation :</h1>
+    <br>
     <p>Animal's name : <%=@booking.animal.name%></p>
     <p><%=@booking.animal.name%>'s category : <%=@booking.animal.category%></p>
     <% duration = (@booking.end_date - @booking.start_date).to_i %>
     <p>Number of days of reservation : <%= duration%> days</p>
     <p>Total price of your reservation : <%=@booking.animal.price * duration%> $</p>
+  <div class="btn btn-primary">
+    <%= link_to "Go back to animals",animals_path()%>
+  </div>
   </div>
   <div class="block">
   <%if @booking.animal.photo.key != nil%>
