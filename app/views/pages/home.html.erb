@@ -15,7 +15,7 @@
     <div class="row">
         <% @categories.each do |category|%>
           <div class="col-4", style="margin-bottom: 10px">
-            <div class="card-category mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url(<%= image_path(category)%>.jpg); background-size: cover; background-position: top;">
+            <div class="card-category mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url(<%= image_path(category)%>); background-size: cover; background-position: top;">
               <%= category %>
             </div>
           </div>
