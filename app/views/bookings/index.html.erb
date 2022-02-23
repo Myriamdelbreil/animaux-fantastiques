@@ -14,11 +14,13 @@
               <div>
                 <h2> <%= booking.animal.name %></h5>
                 <p> <%= booking.start_date %> - <%= booking.end_date %></p>
-                <div class="btn btn-primary">
-                  <%= link_to "More information", booking_path(booking)%>
+                <div class="card-bottom">
+                  <div class="btn btn-primary">
+                    <%= link_to "More information", booking_path(booking)%>
+                  </div>
+                  <h2 class="card-trip-pricing"><%= booking.total_price %> €</h2>
                 </div>
               </div>
-              <h2 class="card-trip-pricing"><%= booking.total_price %> $</h2>
               <div class="card-trip-user">
               <% if booking.animal.user.photo.key != nil%>
                 <%= cl_image_tag booking.animal.user.photo.key, class:"avatar", gravity:"faces", style:"object-fit:cover" %>
