@@ -1,5 +1,5 @@
 
-<div class="container d-flex justify-content-around distrib">
+<div class="container d-flex justify-content-around distrib" style="margin-bottom: 100px">
   <div id="booking-show block">
     <h1>Summary of your reservation :</h1>
     <br>
@@ -13,8 +13,8 @@
   </div>
   </div>
   <div class="block">
-  <%if @booking.animal.photo.key != nil%>
-          <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
+  <%if @booking.animal.photos[0] != nil%>
+          <%= cl_image_tag @booking.animal.photos[0].key, height: 300, width: 400, crop: :fill %>
         <%else%>
           <%= image_tag("placeholder_animal.png", height: 300, width: 400, alt:"placeholder")%>
     <%end%>
