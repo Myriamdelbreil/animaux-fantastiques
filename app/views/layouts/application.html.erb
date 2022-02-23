@@ -22,9 +22,6 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <%=  link_to "Bookings", animals_path(), class:"nav-link active", style:"color:$yellow"%>
-            </li>
-            <li class="nav-item">
                <%=  link_to "Recommandations", animals_path, class:"nav-link active"%>
             </li>
             <li class="nav-item">
@@ -41,8 +38,7 @@
                 <% unless user_signed_in? %>
                   <%= link_to "Sign in", new_user_session_path, class:"dropdown-item"%>
                 <% else %>
-                  <%= link_to "Dashboard", animals_path, class:"dropdown-item" %>
-                  <%= link_to "Bookings' history", animals_path, class:"dropdown-item"%>
+                  <%= link_to "Bookings' history", bookings_path, class:"dropdown-item"%>
                   <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
                 <% end%>
             </div>
