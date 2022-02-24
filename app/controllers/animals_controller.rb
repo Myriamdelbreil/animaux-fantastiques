@@ -8,7 +8,7 @@ class AnimalsController < ApplicationController
       @animals = @animals.where(category: params[:category])
     end
 
-    @markers = User.where.not(animals: nil?).geocoded.map do |user|
+    @markers = User.where(animals: @animals).geocoded.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude,
