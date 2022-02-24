@@ -16,7 +16,7 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top px-3 py-3 mb-50">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top px-3 py-3 mb-50">
       <div class="d-flex">
         <%= link_to root_path do %>
           <%= image_tag "Logo.jpg", alt: "logo", style:"margin-right: 50px;height: 45px;"%>
@@ -24,13 +24,6 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse " id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-between">
-            <li class="nav-item">
-               <%=  link_to "All animals", animals_path, class:"nav-link active", style:"height:30px"%>
-            </li>
-          </ul>
-        </div>
       </div>
           <div class="search-bar row d-flex">
                <%= form_tag animals_path, method: :get do %>
@@ -50,12 +43,12 @@
                 </div>
                 <div>
                   <button name="button" type="submit" class="btn-search">
-                  <i class="fas fa-search white"> Search</i>
+                  <i class="fas fa-search white"></i>
                   </button>
                   <% end %>
                 </div>
               </div>
-          <div>
+          <div class="d-flex">
             <% if policy(Animal).create? %>
             <span class="btn btn-outline-warning mx-3 add" style="font-size:15px">
               <%= link_to "Add an animal", new_animal_path%>
