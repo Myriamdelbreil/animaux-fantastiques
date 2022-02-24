@@ -17,7 +17,7 @@
 
 
   .first-line{
-    background-color: $gray;
+    background-color: black;
     color: $yellow;
   }
 
@@ -87,5 +87,9 @@
   .tabs {
     margin-top: auto;
     margin-bottom: auto;
+  }
+
+  #logo{
+    height: 25px;
   }
 }
