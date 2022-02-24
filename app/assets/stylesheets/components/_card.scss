@@ -4,6 +4,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
   height: 325px;
+  position: relative;
 }
 
 .card-trip > img {
@@ -40,6 +41,16 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.fire {
+  display: none;
+}
+
+.card-trip:hover {
+  .fire{
+  display: block;
+  }
 }
 
 .card-category {
