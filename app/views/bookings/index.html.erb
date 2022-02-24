@@ -1,41 +1,133 @@
 <div class="container", style="margin-top:75px">
-    <h1 class="my-4">Bookings</h1>
-    <% if @bookings[0].nil? %>
-      <h2> It is time to make your first magical reservation!</h2>
-      <div class="btn btn-primary">
-        <%=link_to "Browse animals", animals_path%>
-      </div>
-    <% end %>
-    <div class="row">
-      <% @bookings.each do |booking|%>
-        <div class="col-md-4", style="margin-bottom: 10px">
-          <div class="card-trip">
-            <%if booking.animal.photos[0] != nil%>
-              <%= cl_image_tag booking.animal.photos[0].key%>
-            <%else%>
-              <%= image_tag("placeholder_animal.png", style:"object-fit:cover, object-align:center")%>
-            <%end%>
-            <div class="card-trip-infos">
-              <div>
-                <h2> <%= booking.animal.name %></h5>
-                <p> <%= booking.start_date %> - <%= booking.end_date %></p>
-                <div class="card-bottom">
-                  <div class="btn btn-primary">
-                    <%= link_to "More information", booking_path(booking)%>
-                  </div>
-                  <h2 class="card-trip-pricing"><%= booking.total_price %> €</h2>
-                </div>
-              </div>
-              <div class="card-trip-user">
-              <% if booking.animal.user.photo.key != nil%>
-                <%= cl_image_tag booking.animal.user.photo.key, class:"avatar", gravity:"faces", style:"object-fit:cover" %>
+  <div class="row justify-content-between">
+    <div class="column col-5">
+      <h1 class="my-4 mb-10">Bookings</h1>
+      <% if @bookings[0].nil? %>
+        <h2> It is time to make your first magical reservation!</h2>
+        <div class="btn btn-primary">
+          <%=link_to "Browse animals", animals_path%>
+        </div>
+      <% end %>
+      <div class="row">
+        <% @bookings.each do |booking|%>
+          <div class="col-md-12", style="margin-bottom: 10px">
+            <div class="card-trip">
+              <%if booking.animal.photos[0] != nil%>
+                <%= cl_image_tag booking.animal.photos[0].key%>
               <%else%>
-                <%= image_tag("placeholder_user.png", class:"avatar", style:"object-fit:cover")%>
+                <%= image_tag("placeholder_animal.png", style:"object-fit:cover, object-align:center")%>
               <%end%>
+              <div class="card-trip-infos">
+                <div>
+                  <h2> <%= booking.animal.name %></h5>
+                  <p> <%= booking.start_date %> - <%= booking.end_date %></p>
+                  <div class="card-bottom">
+                    <div class="btn btn-primary">
+                      <%= link_to "More information", booking_path(booking)%>
+                    </div>
+                    <h2 class="card-trip-pricing"><%= booking.total_price %> €</h2>
+                  </div>
+                </div>
+                <div class="card-trip-user">
+                <% if booking.animal.user.photo.key != nil%>
+                  <%= cl_image_tag booking.animal.user.photo.key, class:"avatar", gravity:"faces", style:"object-fit:cover" %>
+                <%else%>
+                  <%= image_tag("placeholder_user.png", class:"avatar", style:"object-fit:cover")%>
+                <%end%>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
+    <div class="column col-5">
+      <h1 class="my-4 mb-10">My animals</h1>
+      <% if current_user.animals[0].nil? %>
+        <h2> Share your magic companions with the world now!</h2>
+        <span class="btn btn-primary">
+             <%= link_to "Add an animal", new_animal_path%>
+        </span>
+      <%else%>
+      <div class="row">
+        <div class="col-12", style="margin-bottom: 10px">
+          <% current_user.animals.each do |animal|%>
+            <div class="card-trip mb-3">
+              <%if animal.photos[0] != nil%>
+                <%= cl_image_tag animal.photos[0].key, class:"photo"%>
+              <%else%>
+                <%= image_tag("placeholder_animal.png", class:"photo")%>
+              <%end%>
+              <div class="card-trip-infos">
+                <div>
+                  <h2> <%= animal.name %></h5>
+                  <p style="margin-top: 2px; margin-bottom: 5px"> <%=animal.description.first(50)%><%= "..." if animal.description[51] != nil %></p>
+                </div>
+                <div class="card-bottom">
+                  <div class="btn btn-primary" style="margin-top: auto">
+                    <%= link_to "More information", animal_path(animal)%>
+                  </div>
+                  <h2 class="card-trip-pricing">€<%=animal.price%>/day</h2>
+                </div>
+                <%if animal.category == "Dragon" %>
+                  <div class="fire">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                  </div>
+                <%end%>
+              </div>
+            </div>
+          <% end %>
+      </div>
+      <%end%>
+    </div>
+  </div>
 </div>
