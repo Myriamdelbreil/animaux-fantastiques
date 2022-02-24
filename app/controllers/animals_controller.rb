@@ -17,6 +17,7 @@ class AnimalsController < ApplicationController
       @animals = animals.select { |animal| animal.price <= params[:query_price].to_i}
     else
       @animals = policy_scope(Animal).order(created_at: :desc)
+    end
 
     if params[:category]
       @animals = @animals.where(category: params[:category])
@@ -28,7 +29,6 @@ class AnimalsController < ApplicationController
         lng: user.longitude,
         info_window: render_to_string(partial: "info_window", locals: { user: user })
       }
-
     end
   end
 
