@@ -1,15 +1,17 @@
-<div class="container" style="margin-top:100px">
-
-
-  <div class="container" style="width:600px">
-    <h1>Edit your animal</h1>
-    <%= simple_form_for @animal do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :category, as: :select, collection: ["Acromentule", "Augurey", "Botruc", "Centaure", "Dragon", "Farfadet", "Hippogriffe", "Licorne", "Loup-Garou", "Phénix", "Troll"] %>
-      <%= f.input :price %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true }%>
-      <%= f.submit "Update your animal", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+<div class="container" id="container-form">
+  <h1>Edit your animal</h1>
+  <%= simple_form_for @animal do |f| %>
+    <%= f.input :name, placeholder: "Bobby" %>
+    <%= f.input :description, placeholder: "Write things they like, their character traits or any specific items you feel are relevant..." %>
+    <div class="row">
+      <div class="col-6">
+        <%= f.input :category, as: :select, collection: Animal::CATEGORIES%>
+      </div>
+      <div class="col-6">
+        <%= f.input :price, placeholder: "in €" %>
+      </div>
+    </div>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }%>
+    <%= f.submit "Edit your animal", class: "btn btn-primary" %>
+  <% end %>
 </div>
