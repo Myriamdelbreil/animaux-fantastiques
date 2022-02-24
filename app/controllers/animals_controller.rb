@@ -17,6 +17,18 @@ class AnimalsController < ApplicationController
       @animals = animals.select { |animal| animal.price <= params[:query_price].to_i}
     else
       @animals = policy_scope(Animal).order(created_at: :desc)
+
+    if params[:category]
+      @animals = @animals.where(category: params[:category])
+    end
+
+    @markers = User.where(animals: @animals).geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { user: user })
+      }
+
     end
   end
 
@@ -58,7 +70,7 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
     authorize @animal
     @animal.destroy
-    redirect_to animals_path
+    redirect_to bookings_path
   end
 
   private
