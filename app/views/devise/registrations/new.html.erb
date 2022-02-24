@@ -9,12 +9,6 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "username" }%>
-      <div class="d-none">
-        <%= f.input :address,
-                  required: true,
-                  input_html: { autocomplete: 'address' },
-                  class: "d-none"%>
-      </div>
       <%= f.input :address,
                   required: true,
                   input_html: { data: { geocoder_target: "address" } },
