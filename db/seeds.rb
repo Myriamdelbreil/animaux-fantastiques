@@ -8,12 +8,14 @@
 
 require 'faker'
 
+Booking.destroy_all
 Animal.destroy_all
 User.destroy_all
 
-user = User.create(username: "tests", email: "test@moment.com", password: "123456")
+
+user = User.create(username: "tests", email: "test@moment.com", password: "123456", address: "16 Villa Gaudelet, Paris")
 
 10.times do
-  animal = Animal.new({ name: Faker::Creature::Animal.name, price: rand(50..100), category: "Licorne", description: "this is a test", user: User.first })
+  animal = Animal.new({ name: Faker::Creature::Animal.name, price: rand(50..100), category: "Unicorn", description: "this is a test", user: user })
   animal.save!
 end
