@@ -3,7 +3,11 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = policy_scope(Animal).order(created_at: :desc)
-    # @animal = Animal.all.each(&:name)
+
+    if params[:category]
+      @animals = @animals.where(category: params[:category])
+    end
+
     @markers = User.where.not(animals: nil?).geocoded.map do |user|
       {
         lat: user.latitude,
@@ -11,7 +15,6 @@ class AnimalsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { user: user })
       }
     end
-
   end
 
   def show
