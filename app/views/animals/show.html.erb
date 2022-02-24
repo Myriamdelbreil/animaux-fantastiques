@@ -56,19 +56,33 @@
       </div>
     </div>
     <div class="column col-lg-6 col-md-12">
-      <div id="booking-form">
-        <div>
-          <h1>Your reservation :</h1>
-          <p><%=@animal.name%> : <%=@animal.price%> €/day</p>
-          <%= simple_form_for [@animal, @booking] do |f| %>
-            <%= f.input :start_date, as: :date, html5: true %>
-            <%= f.input :end_date, as: :date, html5: true %>
-            <% if policy(Booking).create? %>
-            <%= f.submit "Book now", class: "btn btn-primary" %>
+      <%if policy(@animal).destroy? %>
+        <div id="booking-logs">
+          <h3 style="text-align: center"><%= "#{@animal.name.capitalize}'s current bookings" %></h3>
+            <% if @animal.bookings[0].nil? %>
+              <p>People are looking at your companion! the first booking will pop up soon...</p>
             <% end %>
-          <% end %>
+          <ol>
+            <% @animal.bookings.each do |booking| %>
+             <li><%= "#{booking.user.username.capitalize} has made a reservation from #{booking.start_date} to #{booking.end_date}" %></li>
+            <%end%>
+          </ol>
         </div>
-      </div>
+      <% else %>
+        <div id="booking-form">
+          <div>
+            <h1>Your reservation :</h1>
+            <p><%=@animal.name%> : <%=@animal.price%> €/day</p>
+            <%= simple_form_for [@animal, @booking] do |f| %>
+              <%= f.input :start_date, as: :date, html5: true %>
+              <%= f.input :end_date, as: :date, html5: true %>
+              <% if policy(Booking).create? %>
+              <%= f.submit "Book now", class: "btn btn-primary" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <%end%>
     </div>
   </div>
   <div class="row" style="margin-bottom: 50px">

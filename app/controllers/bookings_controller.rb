@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:edit, :update, :delete]
+
   def index
     @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :desc)
     @bookings.each do |booking|
@@ -33,10 +35,31 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    @user = current_user
+    authorize @booking
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    @user = current_user
+    authorize @booking
+    redirect_to booking_path(@booking)
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    @user = current_user
+    authorize @booking
+    redirect_to bookings_path
+  end
+
   private
 
   def booking_params
     params.require(:booking).permit(:total_price, :start_date, :end_date, :user_id, :animal_id)
   end
-
 end
