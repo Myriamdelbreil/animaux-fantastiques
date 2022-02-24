@@ -74,6 +74,22 @@
                     <div class="particle"></div>
                   </div>
                 <%end%>
+                <% if animal.category == "Acromentula" %>
+                  <div class="container", id="container-spider">
+                    <div class="left">
+                      <div class="uno"><div class="uno"><div class="uno"><div class="uno"></div></div></div></div>
+                      <div class="dos"><div class="dos"><div class="dos"><div class="dos"></div></div></div></div>
+                      <div class="tres"><div class="tres"><div class="tres"><div class="tres"></div></div></div></div>
+                      <div class="cuatro"><div class="cuatro"><div class="cuatro"><div class="cuatro"></div></div></div></div>
+                    </div>
+                    <div class="right">
+                      <div class="uno"><div class="uno"><div class="uno"><div class="uno"></div></div></div></div>
+                      <div class="dos"><div class="dos"><div class="dos"><div class="dos"></div></div></div></div>
+                      <div class="tres"><div class="tres"><div class="tres"><div class="tres"></div></div></div></div>
+                      <div class="cuatro"><div class="cuatro"><div class="cuatro"><div class="cuatro"></div></div></div></div>
+                    </div>
+                  </div>
+                <% end %>
                 <div class="card-trip-user">
                 <% if animal.user.photo.key != nil%>
                   <%= cl_image_tag animal.user.photo.key, class:"avatar", gravity:"faces", style:"object-fit:cover" %>

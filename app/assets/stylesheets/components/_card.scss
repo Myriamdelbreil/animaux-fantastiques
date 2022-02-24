@@ -48,10 +48,16 @@
 .fire {
   display: none;
 }
+#container-spider {
+  display: none;
+}
 
 .card-trip:hover {
   .fire{
   display: block;
+  }
+  #container-spider{
+    display: block;
   }
 }
 
