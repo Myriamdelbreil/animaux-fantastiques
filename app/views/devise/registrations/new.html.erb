@@ -1,4 +1,4 @@
-<div class="container" style="margin-top:100px; width:600px">
+<div class="container" id="container-form">
   <h2>Sign up</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -9,9 +9,18 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "username" }%>
+      <div class="d-none">
+        <%= f.input :address,
+                  required: true,
+                  input_html: { autocomplete: 'address' },
+                  class: "d-none"%>
+      </div>
       <%= f.input :address,
                   required: true,
-                  input_html: { autocomplete: "address" }%>
+                  input_html: { data: { geocoder_target: "address" } },
+                  wrapper_html: { data: { controller: "geocoder",
+                  geocoder_api_key_value: ENV["MAPBOX_API_KEY"] }},
+                  class: "d-none"%>
       <%= f.input :email,
                   required: true,
                   input_html: { autocomplete: "email" }%>
@@ -26,7 +35,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+      <%= f.button :submit, "Sign up", class:"btn btn-outline-secondary" %>
     </div>
   <% end %>
 
