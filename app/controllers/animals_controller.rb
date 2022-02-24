@@ -30,7 +30,6 @@ class AnimalsController < ApplicationController
       }
 
     end
-  end
 
   def show
     @animal = Animal.find(params[:id])
