@@ -20,6 +20,60 @@
                 </div>
                 <h2 class="card-trip-pricing">€<%=animal.price%>/day</h2>
               </div>
+              <%if animal.category == "Dragon" %>
+                <div class="fire">
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                </div>
+              <%end%>
               <div class="card-trip-user">
               <% if animal.user.photo.key != nil%>
                 <%= cl_image_tag animal.user.photo.key, class:"avatar", gravity:"faces", style:"object-fit:cover" %>
