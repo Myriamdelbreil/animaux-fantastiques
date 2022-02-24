@@ -52,7 +52,7 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
     authorize @animal
     @animal.destroy
-    redirect_to animals_path
+    redirect_to bookings_path
   end
 
   private

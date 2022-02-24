@@ -10,7 +10,7 @@
       <% end %>
       <div class="row">
         <% @bookings.each do |booking|%>
-          <div class="col-md-4", style="margin-bottom: 10px">
+          <div class="col-md-12", style="margin-bottom: 10px">
             <div class="card-trip">
               <%if booking.animal.photos[0] != nil%>
                 <%= cl_image_tag booking.animal.photos[0].key%>
@@ -49,80 +49,84 @@
              <%= link_to "Add an animal", new_animal_path%>
         </span>
       <%else%>
-        <%current_user.animals.each do |animal|%>
-          <div class="card-trip mb-3">
-            <%if animal.photos[0] != nil%>
-              <%= cl_image_tag animal.photos[0].key, class:"photo"%>
-            <%else%>
-              <%= image_tag("placeholder_animal.png", class:"photo")%>
-            <%end%>
-            <div class="card-trip-infos">
-              <div>
-                <h2> <%= animal.name %></h5>
-                <p style="margin-top: 2px; margin-bottom: 5px"> <%=animal.description.first(50)%><%= "..." if animal.description[51] != nil %></p>
+      <div class="row">
+        <div class="col-12", style="margin-bottom: 10px">
+          <% current_user.animals.each do |animal|%>
+            <div class="card-trip mb-3">
+              <%if animal.photos[0] != nil%>
+                <%= cl_image_tag animal.photos[0].key, class:"photo"%>
+              <%else%>
+                <%= image_tag("placeholder_animal.png", class:"photo")%>
+              <%end%>
+              <div class="card-trip-infos">
+                <div>
+                  <h2> <%= animal.name %></h5>
+                  <p style="margin-top: 2px; margin-bottom: 5px"> <%=animal.description.first(50)%><%= "..." if animal.description[51] != nil %></p>
+                </div>
+                <div class="card-bottom">
+                  <div class="btn btn-primary" style="margin-top: auto">
+                    <%= link_to "More information", animal_path(animal)%>
+                  </div>
+                  <h2 class="card-trip-pricing">€<%=animal.price%>/day</h2>
+                </div>
+                <%if animal.category == "Dragon" %>
+                  <div class="fire">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                  </div>
+                <%end%>
               </div>
-            <div class="card-bottom">
-              <div class="btn btn-primary" style="margin-top: auto">
-                <%= link_to "More information", animal_path(animal)%>
-              </div>
-              <h2 class="card-trip-pricing">€<%=animal.price%>/day</h2>
             </div>
-            <%if animal.category == "Dragon" %>
-              <div class="fire">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-              </div>
-            <%end%>
-          </div>
-          <%end%>
+          <% end %>
+      </div>
       <%end%>
     </div>
   </div>
