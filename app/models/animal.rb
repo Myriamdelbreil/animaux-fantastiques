@@ -1,5 +1,5 @@
 class Animal < ApplicationRecord
-  CATEGORIES = ["Acromentula", "Centaur", "Dragon", "Hippogryph", "Leprechaun", "Phoenix", "Troll", "Unicorn", "Were-wolf"]
+  CATEGORIES = ["Acromentula", "Centaur", "Dragon", "Hippogryph", "Leprechaun", "Phoenix", "Troll", "Unicorn", "Werewolf"]
   belongs_to :user
   has_many :bookings, dependent: :destroy
   validates :name, :description, :price, :category, presence: true
