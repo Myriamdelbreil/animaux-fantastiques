@@ -14,23 +14,48 @@
   <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top px-3 py-3 mb-50">
-      <div class="container-fluid">
-        <%= link_to "Fantastic beasts", root_path, class:"text-decoration-none", style:"color:white; font-size:1.25rem; margin-right:20px" %>
+      <div class="d-flex">
+        <%= link_to "Fantastic beasts", root_path, class:"text-decoration-none", style:"color:white; font-size:1.25rem; margin-right:20px; line-heignt: 36px" %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse " id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-between">
             <li class="nav-item">
                <%=  link_to "All animals", animals_path, class:"nav-link active"%>
             </li>
           </ul>
+        </div>
+      </div>
+          <div class="search-bar row d-flex">
+               <%= form_tag animals_path, method: :get do %>
+                <div id="search-component1">
+                    <%= text_field_tag :query_category,
+                      params[:query_category],
+                      class: "form-control",
+                      placeholder: "Which category are you looking for ?"
+                    %>
+                </div>
+                <div id="search-component2">
+                  <%= text_field_tag :query_price,
+                    params[:query_price],
+                    class: "form-control",
+                    placeholder: "What is your maximum price ?"
+                  %>
+                </div>
+                <div>
+                  <button name="button" type="submit" class="btn-search">
+                  <i class="fas fa-search white"> Search</i>
+                  </button>
+                  <% end %>
+                </div>
+              </div>
+          <div>
             <% if policy(Animal).create? %>
              <span class="btn btn-outline-light mx-3" style="font-size:15px">
              <%= link_to "Add an animal", new_animal_path%>
               </span>
             <% end %>
-          <div>
             <img class="avatar" alt="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <% unless user_signed_in? %>
@@ -41,8 +66,6 @@
                 <% end%>
             </div>
           </div>
-        </div>
-      </div>
     </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

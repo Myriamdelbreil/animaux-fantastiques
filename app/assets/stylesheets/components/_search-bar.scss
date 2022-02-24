@@ -1,8 +1,29 @@
-.search-form-control {
+.search-bar {
   position: relative !important;
+  height: 15px !important;
+  width: 570px !important;
+  margin: 0 auto;
+  margin-bottom: 20px;
+
+  #search-component1 {
+    position: absolute !important;
+    left: 0 !important;
+    width: 400px !important;
+  }
+
+  #search-component2 {
+    position: absolute !important;
+    right: 10px !important;
+    width: 300px !important;
+  }
 }
 
-.search-form-control .btn-search {
+
+.form-control {
+  border-radius: 32px !important;
+}
+
+.btn-search {
   position: absolute;
   right: 0 !important;
 }
