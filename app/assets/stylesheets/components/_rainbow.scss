@@ -1,0 +1,66 @@
+$unit: 20vw;
+$thick: 10px;
+
+$colors: #FF0013, #FF9713, #FFE213, #2DCE13, #47C6FF, #5900AB;
+
+.portfolio-experiment{
+  display: none;
+	.rainbow {
+		width: $unit;
+		height: $unit/2;
+		min-width: 150px;
+		min-height: 75px;
+		overflow: hidden;
+		position: relative;
+    top: -100px;
+    left: 536px;
+
+		.bow {
+			position: absolute;
+			// transform: rotate(-45deg);
+			top: 0;
+			left: 0;
+			right: 0;
+			height: $unit;
+			min-height: 150px;
+			box-sizing: content-box;
+
+			&:before {
+				content: '';
+				position: absolute;
+				border: $thick solid transparent;
+				transform: rotate(-45deg);
+				border-radius: 50%;
+			}
+
+			@for $i from 1 to 7 {
+				$bow: ($i - 1) * $thick;
+
+				&:nth-of-type(#{$i}) {
+					animation: bow 2.5s cubic-bezier(.46,.1,.25,1) infinite $i/18*1s;
+					&:before {
+						top: $bow;
+						right: $bow;
+						bottom: $bow;
+						left: $bow;
+						border-bottom-color: nth($colors, $i);
+						border-left-color: nth($colors, $i);
+					}
+				}
+			}
+		}
+	}
+
+
+	@keyframes bow {
+		0%, 5% {
+			transform: rotate(0);
+		}
+		40%, 60% {
+			transform: rotate(180deg);
+		}
+		95%, 100% {
+			transform: rotate(360deg);
+		}
+	}
+}
