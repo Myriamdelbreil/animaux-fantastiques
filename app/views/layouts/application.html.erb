@@ -16,16 +16,15 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top px-3 py-3 mb-50">
       <div class="container-fluid">
         <%= link_to root_path do %>
-          <%= image_tag "Logo.jpg", alt: "logo", style:"margin-right: 50px;height: 25px;"%>
+          <%= image_tag "Logo.jpg", alt: "logo", style:"margin-right: 50px;height: 45px;"%>
         <%  end %>
-        <%# <%= link_to "Fantastic beasts", root_path, class:"text-decoration-none", style:"color:white; font-size:1.25rem; margin-right:20px" %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-               <%=  link_to "All animals", animals_path, class:"nav-link active"%>
+               <%=  link_to "All animals", animals_path, class:"nav-link active", style:"height:30px"%>
             </li>
           </ul>
             <% if policy(Animal).create? %>
@@ -34,7 +33,16 @@
               </span>
             <% end %>
           <div>
-            <img class="avatar" alt="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+            <% unless user_signed_in? %>
+              <%= image_tag "placeholder_user.png", class:"avatar", id:"navbarDropdown",
+              data: { toggle: "dropdown"}, aria:{ haspopup:true, expanded:false } %>
+            <% else %>
+              <% if current_user.photo != nil && current_user.photo.key != nil%>
+                <%= cl_image_tag current_user.photo.key, class:"avatar", id:"navbarDropdown", aria:{ haspopup:true, expanded:false } %>
+              <% else %>
+                <%= image_tag "placeholder_user.png", class:"avatar", id:"navbarDropdown", aria:{ haspopup:true, expanded:false } %>
+              <% end %>
+            <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <% unless user_signed_in? %>
                   <%= link_to "Sign in", new_user_session_path, class:"dropdown-item"%>
