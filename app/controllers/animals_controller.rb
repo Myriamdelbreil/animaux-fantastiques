@@ -3,7 +3,7 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = policy_scope(Animal).order(created_at: :desc)
-
+    # @animal = Animal.all.each(&:name)
     @markers = User.where.not(animals: nil?).geocoded.map do |user|
       {
         lat: user.latitude,
