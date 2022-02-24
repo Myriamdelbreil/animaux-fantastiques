@@ -60,12 +60,14 @@
 }
 
 .btn-search {
-  border-radius: 40px 40px;
-  width: 100px;
+  border-radius: 50%;
+  width: 40px;
   height: 40px;
   background-color: $primary;
   color: white;
   position: absolute;
+  right: 9px;
+  top: -1px;
 }
 
 .btn-outline-warning{
