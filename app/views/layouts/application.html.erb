@@ -31,9 +31,9 @@
             </li>
           </ul>
             <% if policy(Animal).create? %>
-             <span class="btn btn-outline-light mx-3" style="font-size:15px">
-             <%= link_to "Add an animal", new_animal_path%>
-              </span>
+            <span class="btn btn-outline-warning mx-3 add" style="font-size:15px">
+              <%= link_to "Add an animal", new_animal_path%>
+            </span>
             <% end %>
           <div>
             <% unless user_signed_in? %>
