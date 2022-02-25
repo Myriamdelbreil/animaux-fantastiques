@@ -49,7 +49,7 @@ class BookingsController < ApplicationController
     if @booking.user == @user
       redirect_to booking_path(@booking)
     else
-      redirect_to bookings_path
+      redirect_to animal_path(@booking.animal)
     end
   end
 
