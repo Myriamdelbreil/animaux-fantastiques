@@ -1,5 +1,5 @@
 <h4><%= user.username %></h4>
 <p><%= user.address %></p>
-  <% user.animals.each do |animal| %>
-   <p><%= link_to "#{animal.name}, #{animal.category}", animal_path(animal) %></p>
-  <% end %>
+<% user.animals.each do |animal| %>
+  <p><%= link_to "#{animal.name}, #{animal.category}", animal_path(animal), class:"link-popup" %></p>
+<% end %>
