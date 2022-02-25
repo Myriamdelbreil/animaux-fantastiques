@@ -72,6 +72,12 @@
 
 .btn-outline-warning{
   border: solid rgb(229, 189, 128);
+
+  &:hover{
+    background-color: rgb(229, 189, 128);
+    border: solid rgb(229, 189, 128);
+    color:black;
+  }
 }
 .btn-outline-warning > a{
   color: $yellow;
@@ -79,6 +85,26 @@
 
   &:hover {
     color: black !important;
+    text-decoration: none;
+  }
+}
+
+.btn-outline-warning-sessions{
+  border: solid $yellow;
+  color : black;
+  background-color: $yellow;
+
+  &:hover {
+    background-color: rgb(229, 189, 128);
+    border: solid rgb(229, 189, 128);
+  }
+
+}
+.btn-outline-warning-sessions > a{
+  color: black;
+  text-decoration: none;
+
+  &:hover {
     text-decoration: none;
   }
 }

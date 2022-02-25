@@ -35,13 +35,13 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Update",  class:"btn btn-outline-warning-sessions"%>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+  <div class="d-flex flex-row-reverse" style="margin-top:50px">
+    <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,  class:"btn btn-outline-danger", style:"margin-left:25px" %>
+    <%= link_to "Home", :back, class:"btn btn-primary" %>
+  </div>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
 </div>
