@@ -1,5 +1,5 @@
 <div class="container", style="margin-top:75px">
-  <h1 class="py-5 text-center">There are <%= @animals.count %> animals around you</h1>
+  <h1 class="py-5 text-center">There are <%= pluralize @animals.size, "animal" %> around you</h1>
     <div class="row m-auto">
       <div class="col-7", style="margin-bottom: 10px">
         <% @animals.each do |animal|%>
