@@ -46,7 +46,11 @@ class BookingsController < ApplicationController
     @booking.update(booking_params)
     @user = current_user
     authorize @booking
-    redirect_to booking_path(@booking)
+    if @booking.user == @user
+      redirect_to booking_path(@booking)
+    else
+      redirect_to bookings_path
+    end
   end
 
   def destroy

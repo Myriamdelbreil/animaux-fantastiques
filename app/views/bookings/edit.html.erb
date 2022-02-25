@@ -13,3 +13,7 @@
     </div>
   </div>
 </div>
+
+<%= simple_form for [@booking] do |f| %>
+  <%= f.input :status, value: "denied" %>
+<%= f.submit %>
