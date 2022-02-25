@@ -4,7 +4,14 @@
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: $body-font;
+
+  .link-popup {
+    text-decoration: none;
+    border: none;
+  }
+
+
 }
 
 #map {
