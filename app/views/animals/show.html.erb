@@ -54,7 +54,7 @@
     </div>
     <div class="column col-lg-6 col-md-12">
       <%if policy(@animal).destroy? %>
-        <div id="booking-logs" class="text-center">
+        <div id="booking-logs">
           <h3 style="text-align: center"><%= "#{@animal.name.capitalize}'s current bookings" %></h3>
             <% if @animal.bookings[0].nil? %>
               <p>People are looking at your companion! the first booking will pop up soon...</p>
