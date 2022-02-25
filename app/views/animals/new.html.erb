@@ -1,8 +1,8 @@
 <div class="container container-form">
-  <h1>Create a new animal</h1>
+  <h1 style="text-align:center">Create a new animal</h1>
   <%= simple_form_for @animal do |f| %>
     <%= f.input :name, placeholder: "Bobby" %>
-    <%= f.input :description, placeholder: "Write things they like, their character traits or any specific items you feel are relevant..." %>
+    <%= f.input :description, placeholder: "Write things they like, their character traits or any specific items you feel are relevant..."%>
     <div class="row">
       <div class="col-6">
         <%= f.input :category, as: :select, collection: Animal::CATEGORIES%>
@@ -12,6 +12,8 @@
       </div>
     </div>
     <%= f.input :photos, as: :file, input_html: { multiple: true }%>
-    <%= f.submit "Create an animal", class: "btn btn-primary" %>
+    <div class="d-flex form-actions justify-content-center">
+      <%= f.submit "Create an animal", class:"btn btn-outline-warning-sessions" %>
+    </div>
   <% end %>
 </div>
