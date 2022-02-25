@@ -15,7 +15,7 @@
                   <p style="margin-top: 2px; margin-bottom: 5px"> <%=animal.description.first(50)%><%= "..." if animal.description[51] != nil %></p>
                 </div>
                 <div class="card-bottom">
-                  <div class="btn btn-primary" style="margin-top: auto">
+                  <div class="btn btn-outline-warning" style="margin-top: auto">
                     <%= link_to "More information", animal_path(animal)%>
                   </div>
                   <h2 class="card-trip-pricing">€<%=animal.price%>/day</h2>
