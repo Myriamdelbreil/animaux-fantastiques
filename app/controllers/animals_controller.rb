@@ -6,7 +6,7 @@ class AnimalsController < ApplicationController
       if params[:query_price].present?
         animals = policy_scope(Animal).order(created_at: :desc)
                                       .search_by_category(params[:query_category])
-        @animals = animals.select { |animal| animal.price <= params[:query_price].to_i}
+        @animals = animals.select { |animal| animal.price < params[:query_price].to_i || animal.price = params[:query_price].to_i }
       else
         @animals = policy_scope(Animal).order(created_at: :desc)
                                        .search_by_category(params[:query_category])
@@ -14,7 +14,7 @@ class AnimalsController < ApplicationController
     elsif params[:query_price].present? && params[:query_category].present? == false
       animals = policy_scope(Animal).order(created_at: :desc)
                                     .search_by_price(params[:query_price])
-      @animals = animals.select { |animal| animal.price <= params[:query_price].to_i}
+      @animals = animals.select { |animal| animal.price < params[:query_price].to_i || animal.price = params[:query_price].to_i }
     else
       @animals = policy_scope(Animal).order(created_at: :desc)
     end
