@@ -4,6 +4,7 @@
     <h1>Summary of your reservation :</h1>
     <br>
     <p>Animal's name : <%=@booking.animal.name%></p>
+
     <p><%=@booking.animal.name%>'s category : <%=@booking.animal.category%></p>
 
     <% if @duration > 1 %>
@@ -13,6 +14,8 @@
     <% end %>
 
     <p>Total price of your reservation : <%=@booking.animal.price * @duration%> $</p>
+    <p>Status of your reservation: <%= @booking.status.capitalize %></p>
+
   </div>
   <div  id="carouselExampleIndicators" class="carousel slide block" data-bs-ride="carousel">
     <div class="carousel-indicators">

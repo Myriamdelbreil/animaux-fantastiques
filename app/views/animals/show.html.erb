@@ -59,11 +59,56 @@
             <% if @animal.bookings[0].nil? %>
               <p>People are looking at your companion! the first booking will pop up soon...</p>
             <% end %>
-          <ol>
+          <ul>
             <% @animal.bookings.each do |booking| %>
-             <li><%= "#{booking.user.username.capitalize} has made a reservation from #{booking.start_date} to #{booking.end_date}" %></li>
+             <li>
+              <%= "#{booking.user.username.capitalize} has made a reservation from #{booking.start_date} to #{booking.end_date}"%>
+              <br>
+              <%if booking.status == "pending..." %>
+                <div class="d-flex">
+                  Do you approve this reservation ?
+                  <div class="d-flex">
+                    <div>
+                      <%= simple_form_for booking do |t| %>
+                        <div class="d-flex">
+                          <%=t.input :status, as: :hidden, input_html: {value: "approved!"}%>
+                          <%= button_tag type: 'submit', style:"background: none; border: none; color: #004E00;" do %>
+                            <i class="fas fa-check" aria-hidden="true"></i>
+                          <% end %>
+                        </div>
+                      <%end %>
+                    </div>
+                    <div>
+                      <%= simple_form_for booking do |t| %>
+                        <div class="d-flex">
+                          <%=t.input :status, as: :hidden, input_html: {value: "denied"}%>
+                          <%= button_tag type: 'submit', style:"background: none; border: none; color: #93402F;" do %>
+                            <i class="fas fa-times" aria-hidden="true"></i>
+                          <% end %>
+                        </div>
+                      <%end %>
+                    </div>
+                  </div>
+                </div>
+              <%elsif booking.status == "approved!"%>
+              <div class="d-flex">
+                <%= "This reservation is approved! Soon, #{@animal.name} will meet #{booking.user.username.capitalize}"%>
+                <%= simple_form_for booking do |t| %>
+                        <div class="d-flex">
+                          <%=t.input :status, as: :hidden, input_html: {value: "denied"}%>
+                          <%= button_tag type: 'submit', style:"background: none; border: none; color: #93402F;" do %>
+                            <i class="fas fa-times" aria-hidden="true"></i>
+                          <% end %>
+                        </div>
+                      <%end %>
+              </div>
+              <%else%>
+                You have chosen not to approve this reservation
+              <%end%>
+              <br>
+             </li>
             <%end%>
-          </ol>
+          </ul>
         </div>
       <% else %>
         <div id="booking-form">
