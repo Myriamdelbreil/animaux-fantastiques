@@ -93,6 +93,9 @@
   border: solid $yellow;
   color : black;
   background-color: $yellow;
+  width: 240px;
+  border-radius: 4px;
+  margin-top: 20px;
 
   &:hover {
     background-color: rgb(229, 189, 128);
