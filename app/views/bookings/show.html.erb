@@ -4,10 +4,11 @@
     <h1>Summary of your reservation :</h1>
     <br>
     <p>Animal's name : <%=@booking.animal.name%></p>
-    <p><%=@booking.animal.name%>'s category : <%=@booking.animal.category%></p>
+    <p><%=@booking.animal.name%>'s category: <%=@booking.animal.category%></p>
     <% duration = (@booking.end_date - @booking.start_date).to_i %>
-    <p>Number of days of reservation : <%= duration%> days</p>
-    <p>Total price of your reservation : <%=@booking.animal.price * duration%> $</p>
+    <p>Number of days of reservation: <%= duration%> days</p>
+    <p>Total price of your reservation: <%=@booking.animal.price * duration%> $</p>
+    <p>Status of your reservation: <%= @booking.status.capitalize %></p>
   </div>
   <div  id="carouselExampleIndicators" class="carousel slide block" data-bs-ride="carousel">
     <div class="carousel-indicators">
