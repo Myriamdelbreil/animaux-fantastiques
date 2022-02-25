@@ -1,16 +1,24 @@
-<div class="container", style="margin-top:75px">
-  <div class="row justify-content-between">
-    <div class="column col-5">
-      <h1 class="my-4 mb-10">Bookings</h1>
+<div class="container", style="margin-top:75px; margin-bottom:200px">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings" type="button" role="tab" aria-controls="bookings" aria-selected="true">My Bookings</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="animals-tab" data-bs-toggle="tab" data-bs-target="#animals" type="button" role="tab" aria-controls="animals" aria-selected="false">My Animals</button>
+  </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="bookings" role="tabpanel" aria-labelledby="bookings-tab">
+      <h1 class="my-4 mb-10">My Bookings</h1>
       <% if @bookings[0].nil? %>
         <h2> It is time to make your first magical reservation!</h2>
         <div class="btn btn-primary">
           <%=link_to "Browse animals", animals_path%>
         </div>
       <% end %>
-      <div class="row">
+      <div class="row m-auto">
         <% @bookings.each do |booking|%>
-          <div class="col-md-12", style="margin-bottom: 10px">
+          <div class="col-5 m-auto">
             <div class="card-trip">
               <%if booking.animal.photos[0] != nil%>
                 <%= cl_image_tag booking.animal.photos[0].key%>
@@ -19,7 +27,15 @@
               <%end%>
               <div class="card-trip-infos">
                 <div>
-                  <h2> <%= booking.animal.name %></h5>
+                  <h2> <%= booking.animal.name %>
+                  <% if booking.status == "approved!" %>
+                    <i class="fas fa-check-circle" style="color:#004E00"></i>
+                  <% elsif booking.status == "denied"%>
+                    <i class="fas fa-times-circle" style="color:#93402F"></i>
+                  <% else %>
+                    <i class="fas fa-question-circle" style="color:orange"></i>
+                  <% end %>
+                  </h2>
                   <p> <%= booking.start_date %> - <%= booking.end_date %></p>
                   <div class="card-bottom">
                     <div class="btn btn-primary">
@@ -29,29 +45,30 @@
                   </div>
                 </div>
                 <div class="card-trip-user">
-                <% if booking.animal.user.photo.key != nil%>
-                  <%= cl_image_tag booking.animal.user.photo.key, class:"avatar", gravity:"faces", style:"object-fit:cover" %>
-                <%else%>
-                  <%= image_tag("placeholder_user.png", class:"avatar", style:"object-fit:cover")%>
-                <%end%>
+                  <% if booking.animal.user.photo.key != nil%>
+                    <%= cl_image_tag booking.animal.user.photo.key, class:"avatar", gravity:"faces", style:"object-fit:cover" %>
+                  <%else%>
+                    <%= image_tag("placeholder_user.png", class:"avatar", style:"object-fit:cover")%>
+                  <%end%>
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
+        <%end%>
       </div>
     </div>
-    <div class="column col-5">
-      <h1 class="my-4 mb-10">My animals</h1>
-      <% if current_user.animals[0].nil? %>
-        <h2> Share your magic companions with the world now!</h2>
-        <span class="btn btn-primary">
-             <%= link_to "Add an animal", new_animal_path%>
-        </span>
-      <%else%>
-      <div class="row">
-        <div class="col-12", style="margin-bottom: 10px">
-          <% current_user.animals.each do |animal|%>
+    <div class="tab-pane fade" id="animals" role="tabpanel" aria-labelledby="animals-tab">
+
+    <h1 class="my-4 mb-10">My animals</h1>
+    <% if current_user.animals[0].nil? %>
+      <h2> Share your magic companions with the world now!</h2>
+      <span class="btn btn-primary">
+          <%= link_to "Add an animal", new_animal_path%>
+      </span>
+    <%else%>
+      <div class="row m-auto">
+        <% current_user.animals.each do |animal|%>
+          <div class="col-5 m-auto">
             <div class="card-trip mb-3">
               <%if animal.photos[0] != nil%>
                 <%= cl_image_tag animal.photos[0].key, class:"photo"%>
@@ -153,9 +170,9 @@
                 <% end %>
               </div>
             </div>
-          <% end %>
+          </div>
+        <%end%>
       </div>
-      <%end%>
-    </div>
+    <%end%>
   </div>
 </div>
