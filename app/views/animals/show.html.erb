@@ -134,14 +134,14 @@
   <div class="row" style="margin-top:20px">
     <div class="col">
       <% if policy(@animal).edit? %>
-        <%= link_to edit_booking_path(@animal) do %>
+        <%= link_to edit_animal_path(@animal) do %>
           <i class="fas fa-edit" aria-hidden="true" style="font-size:30px; color:rgb(247, 219, 190)"></i>
         <% end %>
       <% end %>
     </div>
     <div class="col">
       <% if policy(@animal).destroy? %>
-        <%= link_to booking_path(@animal), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <%= link_to animal_path(@animal), method: :delete, data: { confirm: "Are you sure?" } do %>
           <i class="fas fa-trash-alt" style="font-size:30px; color:#d39487"></i>
         <% end %>
       <% end %>
