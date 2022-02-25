@@ -4,17 +4,17 @@ class AnimalsController < ApplicationController
   def index
     if params[:query_category].present?
       if params[:query_price].present?
-        animals = policy_scope(Animal).order(created_at: :desc)
-                                      .search_by_category(params[:query_category])
-        @animals = animals.select { |animal| animal.price < params[:query_price].to_i || animal.price = params[:query_price].to_i }
+        @animals = policy_scope(Animal).order(created_at: :desc)
+                                       .search_by_category(params[:query_category])
+                                       .where("price <= ?", params[:query_price])
       else
         @animals = policy_scope(Animal).order(created_at: :desc)
                                        .search_by_category(params[:query_category])
       end
     elsif params[:query_price].present? && params[:query_category].present? == false
-      animals = policy_scope(Animal).order(created_at: :desc)
-                                    .search_by_price(params[:query_price])
-      @animals = animals.select { |animal| animal.price < params[:query_price].to_i || animal.price = params[:query_price].to_i }
+      @animals = policy_scope(Animal).order(created_at: :desc)
+                                    # .search_by_price(params[:query_price])
+                                     .where("price <= ?", params[:query_price])
     else
       @animals = policy_scope(Animal).order(created_at: :desc)
     end
