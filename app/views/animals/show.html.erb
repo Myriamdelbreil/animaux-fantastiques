@@ -59,11 +59,21 @@
             <% if @animal.bookings[0].nil? %>
               <p>People are looking at your companion! the first booking will pop up soon...</p>
             <% end %>
-          <ol>
+          <ul>
             <% @animal.bookings.each do |booking| %>
-             <li><%= "#{booking.user.username.capitalize} has made a reservation from #{booking.start_date} to #{booking.end_date}" %></li>
+             <li>
+              <%= "#{booking.user.username.capitalize} has made a reservation from #{booking.start_date} to #{booking.end_date}"%>
+              <br>
+              <%if booking.status == "pending" %>
+                Do you approve this reservation ?
+              <%elsif booking.status == "approved"%>
+                <%= "This reservation is approved! Soon, #{@animal.name} will meet #{booking.user.username.capitalize}"%>
+              <%else%>
+                You have chosen not to approve this reservation
+              <%end%>
+             </li>
             <%end%>
-          </ol>
+          </ul>
         </div>
       <% else %>
         <div id="booking-form">
