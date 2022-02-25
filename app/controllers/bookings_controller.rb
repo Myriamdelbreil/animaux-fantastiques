@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
-    @duration = (@booking.end_date - @booking.start_date).to_i
+    @duration = (@booking.end_date - @booking.start_date).to_i + 1
     @booking.total_price = @booking.animal.price * @duration
   end
 
